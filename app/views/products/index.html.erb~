@@ -22,6 +22,16 @@
   </tbody>
 </table>
 
+<%=
+    @products.map do |product|
+      [product.name, product.price/@sum_price]
+    end
+%>
+
+<script type='text/javascript'>
+  console.log('the number of products is ' + '<%= @products.count %>');
+</script>
+
 <script type='text/javascript'>
   $(document).ready(function(){
         chart = new Highcharts.Chart({
