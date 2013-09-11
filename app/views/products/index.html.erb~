@@ -1,6 +1,14 @@
 <h2> Products in the market </h2>
 
 <div id="highChartContainer" style="min-width: 400px; height: 400px; margin: 0 auto"></div>
+<a href="#" class='closeChart'>Chart</a>
+<a href="#" data-hide-element='chart'>Chart</a>
+
+<script type='text/javascript'>
+  $('[data-hide-element=chart]').on('click', function(){
+      $('#highChartContainer').toggle()
+    });
+</script>
 
 <table>
   <tbody>
@@ -21,16 +29,6 @@
     <% end %>
   </tbody>
 </table>
-
-<%=
-    @products.map do |product|
-      [product.name, product.price/@sum_price]
-    end
-%>
-
-<script type='text/javascript'>
-  console.log('the number of products is ' + '<%= @products.count %>');
-</script>
 
 <script type='text/javascript'>
   $(document).ready(function(){
